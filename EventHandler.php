@@ -6,7 +6,19 @@ class EventHandler {
     private $events = [];
 
     public function track(Eventable $instance): void {
-        $this->events[] = json_encode($instance);   
+        $reflect = new ReflectionClass($instance);
+        $props = $reflect->getProperties(ReflectionProperty::IS_PUBLIC | ReflectionProperty::IS_PROTECTED);
+
+        $event = [];
+        foreach ($props as $prop) {
+            $prop->setAccessible(true);
+            $name = $prop->getName();
+            $value = $prop->getValue($instance);
+            $event[$name] = $value; 
+        }
+
+        $this->events[] = json_encode($event);
+        // print_r($this->events);
     }
     
     public function flush(): void {

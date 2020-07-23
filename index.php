@@ -1,5 +1,7 @@
 <?php
 
+// https://www.php.net/manual/ru/reflectionclass.getproperties.php
+// https://www.php.net/manual/ru/reflectionproperty.getvalue.php
 require_once __DIR__ . "/Eventable.php";
 require_once __DIR__ . "/MyClass.php";
 require_once __DIR__ . "/MyClassTwo.php";
