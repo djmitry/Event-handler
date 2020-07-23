@@ -11,16 +11,11 @@ use EventApp\MyClassTwo;
 use EventApp\EventHandler;
 
 $handler = new EventHandler();
-$classOne = new MyClass();
-$classTwo = new MyClassTwo();
-$handler->track($classOne);
-$handler->track($classOne);
-$handler->track($classOne);
-$handler->track($classOne);
-$handler->track($classTwo);
-$handler->track($classTwo);
-$handler->track($classTwo);
-$handler->track($classTwo);
-$handler->flush();
-$handler->flush();
-$handler->flush();
+
+for ($i = 0; $i < 10; $i++) {
+    $objects[] = new MyClass();
+}
+
+foreach ($objects as $object) {
+    $handler->track($object);
+}
