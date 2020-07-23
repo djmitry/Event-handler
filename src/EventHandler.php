@@ -1,5 +1,10 @@
 <?php
 
+namespace EventApp;
+
+use ReflectionClass;
+use ReflectionProperty;
+
 class EventHandler {
     const LIMIT_FLUSH = 5;
 

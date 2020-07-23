@@ -1,5 +1,7 @@
 <?php
 
+namespace EventApp;
+
 class MyClassTwo implements Eventable {
     public $id = "fake-id-2";
     protected $name = "fake-name-2";

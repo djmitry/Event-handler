@@ -2,11 +2,13 @@
 
 // https://www.php.net/manual/ru/reflectionclass.getproperties.php
 // https://www.php.net/manual/ru/reflectionproperty.getvalue.php
-require_once __DIR__ . "/Eventable.php";
-require_once __DIR__ . "/MyClass.php";
-require_once __DIR__ . "/MyClassTwo.php";
-require_once __DIR__ . "/EventHandler.php";
-require_once __DIR__ . "/HttpMock.php";
+// https://getcomposer.org/doc/01-basic-usage.md#autoloading
+
+require __DIR__ . '/vendor/autoload.php';
+
+use EventApp\MyClass;
+use EventApp\MyClassTwo;
+use EventApp\EventHandler;
 
 $handler = new EventHandler();
 $classOne = new MyClass();

@@ -1,0 +1,15 @@
+{
+    "name": "dmitriy/exam-event",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitriy",
+            "email": "dimazagainov1@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {"EventApp\\": "src/"}
+    }
+}
