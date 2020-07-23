@@ -7,6 +7,7 @@ use ReflectionProperty;
 
 class EventHandler {
     const LIMIT_FLUSH = 5;
+    // const COUNT_THREADS = 2;
 
     private $events = [];
 
@@ -23,7 +24,7 @@ class EventHandler {
         }
 
         $this->events[] = json_encode($event);
-        // print_r($this->events);
+        $this->flush();
     }
     
     public function flush(): void {
@@ -31,8 +32,18 @@ class EventHandler {
             echo "Events empty<br/>";
             return;
         }
+        
+        if ( count($this->events) < self::LIMIT_FLUSH ) {
+            echo "Events not enough<br/>";
+            return;
+        }
 
-        $eventsPart = array_splice($this->events, 0, self::LIMIT_FLUSH);
-        echo "Events passed " . HttpMock::request($eventsPart) . "<br/>";
+        do {
+            $eventsPart = array_splice($this->events, 0, self::LIMIT_FLUSH);
+            $eventsPart = json_encode($eventsPart);
+            $result = HttpMock::request($eventsPart);
+            print_r($this->events);
+            echo "Events passed " . $result . "<br/>";
+        } while ($this->events);
     }
 }
