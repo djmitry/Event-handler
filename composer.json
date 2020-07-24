@@ -8,7 +8,9 @@
             "email": "dimazagainov1@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "krakjoe/pthreads-polyfill": "^1.1"
+    },
     "autoload": {
         "psr-4": {"EventApp\\": "src/"}
     }
