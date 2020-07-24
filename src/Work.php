@@ -6,13 +6,16 @@ use Thread;
 
 class Work extends Thread {
     private $events;
-    
+
+    /**
+     * Constructor
+     */
     public function __construct(array $events)
     {
         $this->events = $events;
     }
 
-    
+
     /**
      * Send request
      */

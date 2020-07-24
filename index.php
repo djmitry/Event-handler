@@ -1,10 +1,15 @@
 <?php
 
-// https://www.php.net/manual/ru/reflectionclass.getproperties.php
-// https://www.php.net/manual/ru/reflectionproperty.getvalue.php
-// https://getcomposer.org/doc/01-basic-usage.md#autoloading
-// https://www.php.net/manual/ru/class.thread.php
-// https://github.com/krakjoe/pthreads-polyfill
+/**
+ * Threads work with polyfill
+ * 
+ * These packages pages help me:
+ * https://www.php.net/manual/ru/reflectionclass.getproperties.php
+ * https://www.php.net/manual/ru/reflectionproperty.getvalue.php
+ * https://getcomposer.org/doc/01-basic-usage.md#autoloading
+ * https://www.php.net/manual/ru/class.thread.php
+ * https://github.com/krakjoe/pthreads-polyfill
+ */
 
 define('COUNT_TEST_OBJECTS', 50);
 
