@@ -12,6 +12,9 @@ class EventHandler extends Threaded {
 
     private $events = [];
 
+    /**
+     * Add event
+     */
     public function track(Eventable $instance): void {
         // Add event
         $reflect = new ReflectionClass($instance);
@@ -33,6 +36,10 @@ class EventHandler extends Threaded {
         }
     }
     
+
+    /**
+     * Flush events
+     */
     public function flush(): void {
         if ( !$this->events ) {
             echo "Events empty<br/>";
@@ -41,16 +48,21 @@ class EventHandler extends Threaded {
 
         // Run works on threads
         $length = ceil(count($this->events) / self::COUNT_THREADS);
-        
+
         do {
             $eventsPart = array_splice($this->events, 0, $length);
             $work = new Work($eventsPart);
-            $result = $work->start();
-            /* $eventsPart = json_encode($eventsPart);
-            $result = HttpMock::request($eventsPart); */
-            // print_r($eventsPart);
-            echo "Run work on thread<br/>";
-            // echo "Events passed " . $result . "<br/>";
+            $work->start();
         } while ($this->events);
+    }
+
+
+    /**
+     * Show events
+     */
+    public function showEvents(): void {
+        echo "<pre>";
+        print_r($this->events);
+        echo "</pre>";
     }
 }

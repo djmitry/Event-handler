@@ -12,12 +12,15 @@ class Work extends Thread {
         $this->events = $events;
     }
 
+    
+    /**
+     * Send request
+     */
     public function run()
     {
         $eventsJson = json_encode($this->events);
         $result = HttpMock::request($eventsJson);
         echo "Request complete, count objects: " . $result . "<br/>";
-        // sleep(1);
         return $result;
     }
 }
