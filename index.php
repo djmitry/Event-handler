@@ -9,6 +9,7 @@
  * https://getcomposer.org/doc/01-basic-usage.md#autoloading
  * https://www.php.net/manual/ru/class.thread.php
  * https://github.com/krakjoe/pthreads-polyfill
+ * https://habr.com/ru/post/300952/
  */
 
 define('COUNT_TEST_OBJECTS', 50);

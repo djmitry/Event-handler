@@ -8,7 +8,7 @@ class Work extends Thread {
     private $events;
 
     /**
-     * Constructor
+     * Set events
      */
     public function __construct(array $events)
     {
